@@ -1,0 +1,20 @@
+{
+    "name": "cabox/mvc",
+    "description": "MvcCore",
+    "type": "project",
+    "authors": [
+        {
+            "name": "hasanmeady",
+            "email": "figo781@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": 
+        {
+            "Mvc\\core\\" : "core/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    }
+}
