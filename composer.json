@@ -1,0 +1,21 @@
+{
+    "name": "yassin/smsm_mvc",
+    "description": "MvcCore",
+    "type": "project",
+    "authors": [
+        {
+            "name": "hasanmeady",
+            "email": "figo781@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": 
+        {
+            "smsm_mvc\\core\\" : "core/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    }
+}
+
