@@ -1,7 +1,7 @@
 <?php 
 // DIRECTORY_SEPARATOR
 !defined("DS") ? define("DS" ,DIRECTORY_SEPARATOR): DS;
-// APP_PATH
+// APP_PATH   
 !defined("APP_PATH") ? define("APP_PATH" , dirname(__FILE__).DS."..".DS) : APP_PATH;
 // APP_VIEW to view folder 
 !defined("APP_VIEW") ? define("APP_VIEW" , APP_PATH."core".DS."views".DS) : APP_VIEW;
