@@ -5,17 +5,17 @@ use SessionHandler;
 
 class customSession  extends SessionHandler
 {
+
     use encryptDecrypt;
-    const SESSIONPATH = APP_PATH.'session';
     const SESSIONAME = "mvc";
     const FLASH_MSG = "flash_msg";
     public function __construct()
     {
+
         session_name(self::SESSIONAME);
         ini_set("session.use_cookies", 1);
         ini_set("session.use_only_cookies" , 1);
         ini_set("session.use_trans_sid" , 0);
-        ini_set("session.save_path" , SELF::SESSIONPATH);
         ini_set("session.save_handler", "files");
         session_set_save_handler($this,true);
         session_start();
