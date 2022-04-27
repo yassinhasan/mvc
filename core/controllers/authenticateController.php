@@ -8,6 +8,6 @@ class authenticateController extends abstractController
 {
     public static function isLogged()
     {
-        return Application::$app->session->user != null ? true : false;
+        return Application::$app->session->userId != null ? true : false;
     }
 }

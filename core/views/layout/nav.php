@@ -1,6 +1,9 @@
 <?php
-use smsm_mvc\core\controllers\userInfoController;
-$user = userInfoController::user();
+
+use smsm_mvc\core\app\Application;
+use smsm_mvc\core\app\user;
+$user = user::findUser();
+
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -31,7 +34,7 @@ $user = userInfoController::user();
                     <?= $user->firstName." ".$user->lastName?>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">profile</a></li>
+                    <li><a class="dropdown-item" href="/smsm_mvc/profile">profile</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/smsm_mvc/logout">logout</a></li>
                 </ul>

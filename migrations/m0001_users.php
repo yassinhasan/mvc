@@ -8,7 +8,7 @@ class m0001_users
     {
 
         $stmt = Application::$app->db->pdo->prepare( "
-                CREATE TABLE IF NOT EXISTS users (
+                CREATE TABLE IF NOT EXISTS app_users (
                     id INT (11) AUTO_INCREMENT PRIMARY KEY  , 
                     firstName VARCHAR(255) DEFAULT NULL ,
                     lastName  VARCHAR(255) DEFAULT NULL ,

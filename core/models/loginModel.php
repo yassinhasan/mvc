@@ -2,6 +2,7 @@
 namespace smsm_mvc\core\models;
 
 use smsm_mvc\core\app\Rrequest;
+use smsm_mvc\core\app\Validate;
 use smsm_mvc\core\models\abstractModel;
 class loginModel extends abstractModel
 {
@@ -11,12 +12,12 @@ class loginModel extends abstractModel
     static public $tableName = "app_users";
     public function rules()
     {
-        return $this->rules = [
+        return [
 
              'email'=> [
-                        self::FIELD__REQUIRED , self::FIELD__EMAIL 
+                        Validate::FIELD__REQUIRED , Validate::FIELD__EMAIL 
                         ] , 
-             'password'=> [self::FIELD__REQUIRED]
+             'password'=> [Validate::FIELD__REQUIRED]
 
         ];
 

@@ -3,7 +3,7 @@
     <?php 
         if(!empty($links["css"])) :
             foreach ($links["css"] as $link) :
-               echo  "<link href='".CSS_PATH.$link.".css?11 ' rel='stylesheet'> " ;
+               echo  "<link href='".CSS_PATH.$link.".css?52 ' rel='stylesheet'> " ;
             endforeach;
         endif;
     ?>

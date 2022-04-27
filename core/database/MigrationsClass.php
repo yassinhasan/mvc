@@ -5,7 +5,7 @@ use smsm_mvc\core\app\Application;
 use PDO;
 class MigrationsClass 
 {
-        public PDO $pdo;
+        public $pdo;
         public function __construct()
         {
             $this->pdo = Application::$app->db->pdo;

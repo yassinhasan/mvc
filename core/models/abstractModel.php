@@ -7,14 +7,6 @@ use smsm_mvc\core\app\Validate;
 
 abstract class abstractModel 
 {
-    protected const FIELD__REQUIRED = "required"; 
-    protected const FIELD__STRING = "string"; 
-    protected const FIELD__EMAIL = "email";
-    protected const FIELD__MIN = "min";
-    protected const FIELD__MAX = "max";
-    protected const FIELD__MATCHED = "matched";
-    protected const FIELD__UNIQUE = "unique";
-
     protected $rules = [];
     public $pdo;
     abstract public function rules();

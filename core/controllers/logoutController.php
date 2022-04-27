@@ -22,7 +22,7 @@ class logoutController extends abstractController
         if($this->request->method() == "GET")
         {
          
-            if(($this->session->user))
+            if(($this->session->userId))
             {
                 $this->cookie->kill("loginCode");
                 $this->session->kill();

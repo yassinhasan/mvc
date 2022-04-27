@@ -11,7 +11,7 @@ class View
     public function startPostForm($model , $url = '')
     {
         $this->model = $model;
-        echo "<form method='POST' action='".$url."'>";
+        echo "<form method='POST' action='".$url."' class='form'> ";
     }
     public function renderInput( $names = [] , $type , $col = "")
     {
@@ -52,5 +52,19 @@ class View
     public function endForm()
     {
         echo "</form>";
+    }
+
+    public function flashMsg($message)
+    {
+        
+        if(Application::$app->session->hasFlashMsg("success") ) 
+        {
+            $msg = Application::$app->session->pull($message)['msg'];
+            echo  "<div class='alert alert-success' role='alert'>
+            <a href='#' class='alert-link'>$msg</a>
+        </div> ";
+        }
+        
+
     }
 }
