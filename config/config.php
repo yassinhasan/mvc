@@ -11,6 +11,12 @@
 !defined("MIGRATIONS_PATH") ? define("MIGRATIONS_PATH" , APP_PATH."migrations".DS) : MIGRATIONS_PATH;
 // PUBLIC_PATH
 !defined("PUBLIC_PATH") ? define("PUBLIC_PATH" , APP_PATH."public".DS) : PUBLIC_PATH;
+// UPLOADES_PATH
+!defined("UPLOADES_PATH") ? define("UPLOADES_PATH" , PUBLIC_PATH."uploades".DS) : UPLOADES_PATH;
+// IMAGES_PATH
+!defined("IMAGES_PATH") ? define("IMAGES_PATH" , UPLOADES_PATH."images".DS) : IMAGES_PATH;
+// PROFILE_PATH
+!defined("PROFILE_PATH") ? define("PROFILE_PATH" , IMAGES_PATH."profile".DS) : PROFILE_PATH;
 // CSS_PATH
 !defined("CSS_PATH") ? define("CSS_PATH" , "public/css".DS) : CSS_PATH;
 // JS_PATH

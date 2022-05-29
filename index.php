@@ -7,6 +7,8 @@ use smsm_mvc\core\controllers\registerController;
 use smsm_mvc\core\controllers\loginController;
 use smsm_mvc\core\controllers\logoutController;
 use smsm_mvc\core\controllers\contactController;
+use smsm_mvc\core\controllers\forgetPasswordController;
+use smsm_mvc\core\controllers\notfoundController;
 use smsm_mvc\core\controllers\profileController;
 
 require_once "config/config.php";
@@ -24,6 +26,7 @@ $config = [
     ];
 $app = new Application($config['db']);
 $app->router->get("/",[ homecontroller::class , "home"]);
+$app->router->get("/notfound",[ notfoundController::class , "notfound"]);
 $app->router->get("/home",[ homecontroller::class , "home"]);
 $app->router->get("/register",[ registerController::class , "register"]);
 $app->router->post("/register",[ registerController::class , "register"]);
@@ -33,6 +36,9 @@ $app->router->post("/login",[ loginController::class , "login"]);
 $app->router->get("/contact",[ contactController::class , "contact"]);
 $app->router->post("/contact",[ contactController::class , "contact"]);
 $app->router->get("/profile",[ profileController::class , "profile"]);
-$app->router->post("/profile/saveprofile",[ profileController::class , "saveprofile"]);
+$app->router->post("/profile/saveProfile",[ profileController::class , "saveProfile"]);
+$app->router->post("/profile/updateProfileImage",[ profileController::class , "updateProfileImage"]);
+$app->router->get("/forgetPassword",[ forgetPasswordController::class ,  "forgetPassword"]);
+$app->router->post("/forgetPassword/resetPassword",[ forgetPasswordController::class ,  "resetPassword"]);
 
 $app->run();

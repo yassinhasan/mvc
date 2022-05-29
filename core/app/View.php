@@ -13,12 +13,17 @@ class View
         $this->model = $model;
         echo "<form method='POST' action='".$url."' class='form'> ";
     }
+    public function startFileForm($model , $url = '' , $class)
+    {
+        $this->model = $model;
+        echo "<form method='POST' action='".$url."' class='$class' enctype='multipart/form-data'>";
+    }
     public function renderInput( $names = [] , $type , $col = "")
     {
 
         foreach($names as $name=>$label)
         {
-            $value = $this->model->$name;
+            $value = ($this->model->$name) == null ? '' : $this->model->$name;
             $class = $this->validate->printClass($name);
             echo " <div class='mb-3 $col'>";
             echo       "<label for='$name' class='form-label'>$label </label>

@@ -56,6 +56,19 @@ class user
         $profile = self::getProfile();
         return !$profile ? null : $profile->bio ;
     }
+    public static function displayImage()
+    {
+        $profile = self::getProfile();
+        if($profile AND $profile->image != null)
+        {
+            return  Application::$app->request->toUpladesaFile("images/profile/$profile->image") ;
+        }else
+        {
+            return Application::$app->request->toUpladesaFile("images/profile.jpg");
+        }
+
+
+    }
     public static function displayMobile()
     {
         $profile = self::getProfile();
