@@ -14,9 +14,7 @@ class registerController extends abstractController
         $this->data["title"] = "register";
         $this->data['model'] = $this->model;
         $this->data['links'] = [
-            "css" => [
-                "register"
-            ]
+            "css" => ["register"]
         ];
     }
 

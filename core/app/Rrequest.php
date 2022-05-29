@@ -53,4 +53,36 @@ class Rrequest
     {
         return $_POST;
     }
+    public function baseUrl()
+    {
+        $protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? null;
+        $http_host = $_SERVER['HTTP_HOST'] ?? null;
+        $script_name = $_SERVER['SCRIPT_NAME'] ?? null;
+        if($script_name)
+        {
+            $script_name = str_replace("index.php" , "" , $script_name);
+        }
+        
+        if($protocol AND $http_host AND $script_name)
+        {
+             return $protocol."://".$http_host.$script_name;
+        }else
+        {
+            return "../../../";
+        }
+       
+    }
+
+    public function publicUrl()
+    {
+        return $this->baseUrl()."public/";
+    }
+    public function cssUrl($file)
+    {
+        return $this->baseUrl()."public/css/$file.css";
+    }
+    public function jsUrl($file)
+    {
+        return $this->baseUrl()."public/js/$file.js";
+    }
 } 

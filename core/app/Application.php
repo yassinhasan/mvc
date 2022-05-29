@@ -16,7 +16,7 @@ class Application
     public $view;
     public $cookie;
     public $migrations;
-    public Database $fb;
+    public  $db;
     public static $app;
     public function __construct(array $config)
     {   

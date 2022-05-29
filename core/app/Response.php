@@ -35,6 +35,7 @@ class Response
         $method = strtolower($this->request->getMethod());
         if(array_key_exists($path , $this->router->routes[$method]))
         {
+
             $callback =  $this->router->routes[$method][$path];
         }
         else

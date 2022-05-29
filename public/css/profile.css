@@ -1,0 +1,52 @@
+.card 
+{
+
+    margin: 50px auto;
+    width: auto !important;
+    max-width: 600px;
+}
+.card > img 
+{
+    max-width: 200px;
+    margin: 50px auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.card .display_name 
+{
+    display: inline-block;
+    margin-top: -40px;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+.edit_profile
+{
+    position: absolute;
+    right: 23px;
+    top: 50%;
+    z-index: 6;
+    transform: translateY(-50%);
+}
+.main-list
+{
+    position: relative;
+}
+.list_edit.hide , .input_profile.hide
+{
+    display: none !important;
+}
+.input_profile
+{
+    margin-top: 10px;
+}
+.profile_iamge
+{
+    cursor: pointer;
+}
+.profile_image_input
+{
+    display: none;
+}

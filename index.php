@@ -7,6 +7,7 @@ use smsm_mvc\core\controllers\registerController;
 use smsm_mvc\core\controllers\loginController;
 use smsm_mvc\core\controllers\logoutController;
 use smsm_mvc\core\controllers\contactController;
+use smsm_mvc\core\controllers\profileController;
 
 require_once "config/config.php";
 require_once "vendor/autoload.php";
@@ -31,7 +32,7 @@ $app->router->get("/logout",[ logoutController::class , "logout"]);
 $app->router->post("/login",[ loginController::class , "login"]);
 $app->router->get("/contact",[ contactController::class , "contact"]);
 $app->router->post("/contact",[ contactController::class , "contact"]);
-$app->router->get("/profile","profile");
-$app->router->get("/notfound","notfound");
+$app->router->get("/profile",[ profileController::class , "profile"]);
+$app->router->post("/profile/saveprofile",[ profileController::class , "saveprofile"]);
 
 $app->run();

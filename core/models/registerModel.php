@@ -2,6 +2,7 @@
 namespace smsm_mvc\core\models;
 
 use smsm_mvc\core\app\Rrequest;
+use smsm_mvc\core\app\Validate;
 
 class registerModel extends abstractModel
 {
@@ -13,15 +14,15 @@ class registerModel extends abstractModel
     static public $tableName = "app_users";
     public function rules()
     {
-        return $this->rules = [
-            'firstName'=>[ self::FIELD__REQUIRED , self::FIELD__STRING],
-            'lastName' => [self::FIELD__REQUIRED , self::FIELD__STRING],
+        return  [
+            'firstName'=>[ Validate::FIELD__REQUIRED , Validate::FIELD__STRING],
+            'lastName' => [Validate::FIELD__REQUIRED , Validate::FIELD__STRING],
              'email'=> [
-                        self::FIELD__REQUIRED , self::FIELD__EMAIL  ,
-                        [self::FIELD__UNIQUE =>[self::$tableName, "email"] ]
+                        Validate::FIELD__REQUIRED , Validate::FIELD__EMAIL  ,
+                        [Validate::FIELD__UNIQUE =>[self::$tableName, "email"] ]
                         ] , 
-             'password'=> [self::FIELD__REQUIRED , [self::FIELD__MIN => 4 ] , [self::FIELD__MAX => 12 ]],
-            'confirmPassword'=> [self::FIELD__REQUIRED , [self::FIELD__MATCHED => "password"]]
+             'password'=> [Validate::FIELD__REQUIRED , [Validate::FIELD__MIN => 4 ] , [Validate::FIELD__MAX => 12 ]],
+            'confirmPassword'=> [Validate::FIELD__REQUIRED , [Validate::FIELD__MATCHED => "password"]]
 
         ];
 

@@ -34,7 +34,7 @@ class loginController extends abstractController
                 $user = $this->model->findUser();
                 if ($user) 
                 {
-                    $rememberMe = $this->request->getBody()["rememberMe"] ;
+                    $rememberMe = isset($this->request->getBody()["rememberMe"]) ?? null ;
                     $password =  $this->request->getBody()['password'];
                     $hashedUsername = $this->encrypt($user->firstName.$user->lastName);
                     if(password_verify($password , $user->password ))
@@ -47,7 +47,7 @@ class loginController extends abstractController
                         {
                               $this->session->loginCode =  $hashedUsername;                        
                         }
-                        $this->session->user = $user;
+                        $this->session->userId = $user->id;
                         $this->session->flashMsg("success" , " you have login succuflly");
                         $this->response->redirect("/smsm_mvc/home");
                     }else

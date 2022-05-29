@@ -6,7 +6,7 @@ use SessionHandler;
 class customSession  extends SessionHandler
 {
 
-    use encryptDecrypt;
+    use encryptDecrypt; 
     const SESSIONAME = "mvc";
     const FLASH_MSG = "flash_msg";
     public function __construct()

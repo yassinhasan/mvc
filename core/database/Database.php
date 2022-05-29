@@ -5,7 +5,7 @@ use PDO;
 
 class Database 
 {
-    public PDO $pdo;
+    public $pdo;
     public $tableName = null;
     public $sql = null;
     public $bindings = [];
@@ -128,6 +128,11 @@ class Database
 
     // $this->select()->from()->where( id = ? , 1 )
     // $this->select()->from()->where([ id = ? and name = ? , 1,21])
+    /**
+     * 
+     * @var string default null
+     * @return Database object
+     */
     public function select($select = " * ")
     {
         $sql = " SELECT ";
