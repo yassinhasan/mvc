@@ -5,15 +5,20 @@
     width: auto !important;
     max-width: 600px;
 }
-.card > img 
+.card-head form > div
 {
-    max-width: 200px;
+    width: 200px;
+}
+.card-head form > div > img 
+{
+    width: 200px;
+    height: 200px;
     margin: 50px auto;
-    max-height: 200px;
     object-fit: cover;
     border-radius: 50%;
+    border: 1px solid #888;
 }
-.card .display_name 
+.card-head .display_name 
 {
     display: inline-block;
     margin-top: -40px;
@@ -47,6 +52,15 @@
     cursor: pointer;
 }
 .profile_image_input
+{
+    display: none;
+}
+
+.update_profile_image.hide
+{
+    display: none;
+}
+.cancel_profile_image.hide
 {
     display: none;
 }
