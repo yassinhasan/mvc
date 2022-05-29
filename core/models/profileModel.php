@@ -64,5 +64,29 @@ class profileModel extends abstractModel
         }
        
     }
+    public function updateProfileImage($id ,$data)
+    {
+        try {            
+            $hasProfile = $this->from(self::$tableName)->where
+            ("userId = ? " , $id)->select()->fetch();
+            if($hasProfile)
+            {
+                $this->data([
+                    "image" => $data ,
+                ])->table(self::$tableName)->where(" userId =  ? " , $id)->update();
+            }else
+            {
+                $this->data([
+                    "image" =>$data ,
+                    "userId" => $id
+                    
+                ])->table(self::$tableName)->insert();
+            }
+            return true;
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
+       
+    }
 
 }

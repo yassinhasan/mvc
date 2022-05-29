@@ -13,6 +13,8 @@ class accessController extends abstractController
 
         "/login",
         "/register",
+        "/forgetPassword",
+        "/forgetPassword/resetPassword"
     ];
     public  function isLogged()
     {

@@ -3,7 +3,8 @@
     <?php 
         if(!empty($links["css"])) :
             foreach ($links["css"] as $link) :
-               echo  "<link href='".CSS_PATH.$link.".css?52 ' rel='stylesheet'> " ;
+                $file =  $this->request->cssUrl($link);
+               echo  "<link href='".$file."?05' rel='stylesheet'> " ;
             endforeach;
         endif;
     ?>

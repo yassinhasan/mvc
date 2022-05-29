@@ -55,7 +55,18 @@ class Rrequest
     }
     public function baseUrl()
     {
-        $protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? null;
+        $protocol = NULL;
+        if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']))
+        {
+           $protocol =  $_SERVER['HTTP_X_FORWARDED_PROTO'];
+        }elseif(isset($_SERVER['HTTPS']) AND $_SERVER['HTTPS'] == "off")
+        {
+            $protocol ="http";
+        }else
+        {
+            $protocol = "https";
+        }
+        
         $http_host = $_SERVER['HTTP_HOST'] ?? null;
         $script_name = $_SERVER['SCRIPT_NAME'] ?? null;
         if($script_name)
@@ -66,9 +77,6 @@ class Rrequest
         if($protocol AND $http_host AND $script_name)
         {
              return $protocol."://".$http_host.$script_name;
-        }else
-        {
-            return "../../../";
         }
        
     }
@@ -84,5 +92,9 @@ class Rrequest
     public function jsUrl($file)
     {
         return $this->baseUrl()."public/js/$file.js";
+    }
+    public function toUpladesaFile($file)
+    {
+        return $this->publicUrl()."uploades/$file";
     }
 } 

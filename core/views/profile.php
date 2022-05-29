@@ -2,17 +2,27 @@
 
 use smsm_mvc\core\app\user;
 
-
 ?>
-<?php $this->view->startPostForm($model , $this->request->baseUrl()."profile/saveProfile"); ?>
-<div class="card" style="width: 18rem;margin-top: 50px">
-  <img src="../../../smsm_mvc/public/uploades/images/profile.jpg" class="card-img-top profile_iamge" alt="...">
-  <input type="file" class='profile_image_input' name='image'>
-  
-  <span class="text-center display_name"><?= user::displayName()  ?></span>
-  <div class="card-body">
+    <div class="card" style="width: 18rem;margin-top: 50px">
+        <div class="card-head d-flex justify-content-center align-items-center">
+            <?php $this->view->startFileForm($model , $this->request->baseUrl()."profile/updateProfileImage" ,"file_form"); ?> 
+            <div class="error_image">
+            <img src="<?= user::displayImage() ?>" class="card-img-top profile_iamge" alt="...">
+            </div>
+            <input type="file" class='profile_image_input' name='image'>
+        
+            <span class="text-center display_name"><?= user::displayName()  ?></span>
+            <div class="row" style="justify-content: center;">
+                <button type="button" class="btn btn-outline-dark btn-success btn-sm update_profile_image hide" style="width: fit-content;margin-right: 10px">Update</button>
+                <button type="button" class="btn btn-outline-dark btn-sm cancel_profile_image hide" style="width: fit-content;">cancel</button>
+            </div>
+            <?php $this->view->endForm(); ?>
+        </div>
+<div class="card-body">
+  <?php $this->view->startPostForm($model , $this->request->baseUrl()."profile/saveProfile"); ?>
         <?php 
             $this->view->flashMsg('success');
+            $this->view->flashMsg('success_img');
         ?>
     <ul class="list-group">
         <li class="main-list list-group-item d-flex justify-content-between align-items-start">
@@ -64,7 +74,7 @@ use smsm_mvc\core\app\user;
                 <span class="info"><?= user::displayMobile()?></span>
                 </div>
                 <div class="input_profile hide error_mobile">
-                    <input type="mobile" class="form-control" value="<?= user::displayMobile() ?>" name="mobile" placeholder="type your Mobile Number">
+                    <input type="text" class="form-control" value="<?= user::displayMobile() ?>" name="mobile" placeholder="type your Mobile Number">
                 </div>
                
         </li>

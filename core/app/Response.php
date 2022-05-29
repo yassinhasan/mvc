@@ -31,11 +31,15 @@ class Response
     // i will get it from array like this $routes["get"][home] => $callback
     private function prepareCallback()
     {
-        $path = strtolower($this->request->getPath());
+        $path = $this->request->getPath();
         $method = strtolower($this->request->getMethod());
+        if($path == "")
+        {
+            $path = "/";
+        }
         if(array_key_exists($path , $this->router->routes[$method]))
         {
-
+              
             $callback =  $this->router->routes[$method][$path];
         }
         else

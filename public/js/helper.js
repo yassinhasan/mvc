@@ -39,27 +39,31 @@ function singleUpload(fileInput , type , size , callable = null)
     fileInput.addEventListener("change",(e)=>
     {
         let file = e.target.files[0];
-        if(!file.type.includes(type))
+        if(file)
         {
-            alert("sorry you must select images");
-            return
+            // if(!file.type.includes(type))
+            // {
+                
+            //     return
+            // }
+
+            // if((file.size  /  1048576 ) > size  )
+            // {
+            //     alert("sorry select image less than " + size+"MG") ;
+            //     return
+            // }
+
+            let reader = new FileReader();
+        
+            reader.addEventListener("load",()=>
+            {
+                let src = reader.result;
+                callable(file , src)
+            })
+
+            reader.readAsDataURL(file);            
         }
 
-        if((file.size  /  1048576 ) > size  )
-        {
-            alert("sorry select image less than " + size+"MG") ;
-            return
-        }
-
-        let reader = new FileReader();
-    
-        reader.addEventListener("load",()=>
-        {
-            let src = reader.result;
-            callable(src)
-        })
-
-        reader.readAsDataURL(file);
     })
 }
 
@@ -106,7 +110,6 @@ function hide(elm)
 {
     if(elm)
     {
-
         elm.style.display = "none"
     }
 }
