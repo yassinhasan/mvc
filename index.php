@@ -14,7 +14,7 @@ use smsm_mvc\core\controllers\profileController;
 require_once "config/config.php";
 require_once "vendor/autoload.php";
 require_once "config/helper.php";
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ , '.env');
 $dotenv->load();
 $config = [
     "db" => 
@@ -22,8 +22,15 @@ $config = [
             "dsn"      => $_ENV['DB_DSN'] , 
             "username" => $_ENV['DB_USERNAME'] ,
             "password" => $_ENV['DB_PASSWORD']
+        ] ,
+        "smtp"=>
+        [
+            "email" => $_ENV['SMTP_EMAIL'] ,
+            "password" => $_ENV['SMTP_PASSWORD'] ,
         ]
+        
     ];
+  
 $app = new Application($config['db']);
 $app->router->get("/",[ homecontroller::class , "home"]);
 $app->router->get("/notfound",[ notfoundController::class , "notfound"]);

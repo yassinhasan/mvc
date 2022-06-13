@@ -17,22 +17,24 @@ class sendMessageClass
         $this->validate =   Application::$app->validate;
         $this->session = Application::$app->session;
         $this->email = new PHPMailer(true);
+
     }
 
     public function prepareMessage($data =[])
     {
+
             //Server settings
             $this->email->SMTPDebug = false;                      //Enable verbose debug output
             $this->email->isSMTP();                                            //Send using SMTP
             $this->email->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $this->email->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $this->email->Username   = 'figo781@gmail.com';                     //SMTP username
-            $this->email->Password   = 'ytjkhhogglgmmkwt';                               //SMTP password
+            $this->email->Username   = $_ENV['SMTP_EMAIL'];                     //SMTP username
+            $this->email->Password   =  $_ENV['SMTP_PASSWORD'];                               //SMTP password
             $this->email->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $this->email->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         
             //Recipients
-            $this->email->setFrom('figo781@gmail.com', 'MVC Project');
+            $this->email->setFrom($_ENV['SMTP_EMAIL'], 'MVC Project');
             $this->email->addAddress($data['to'], $data['to_name']);     //Add a recipient
             //'marwamedhat87@gmail.com'
             // $this->email->addAddress('ellen@example.com');               //Name is optional
@@ -53,7 +55,7 @@ class sendMessageClass
     public function send()
     {
         try {
-            if( $this->email->send())
+           if( $this->email->send())
             {
                return true;
             }
