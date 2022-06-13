@@ -29,7 +29,7 @@ class registerController extends abstractController
             {
                 if ($this->model->saveUser()) 
                 {
-                    $this->session->flashMsg("success" , "your registration done");
+                    $this->session->setFlashMsg("success" , "your registration done");
                     $this->response->redirect("smsm_mvc/");
                     exit;
                 }

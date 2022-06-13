@@ -7,14 +7,14 @@ class Validate extends abstractValidate
         return $this->error;
     }
     
-    public function isValid($class , $allRules , $data)
+    public function isValid($model , $allRules , $data)
     {
         
         foreach($allRules as $field=>$rules)
         {
             $filed_name = $field;
             $filed_value =  $data[$filed_name];
-           $class->{$filed_name} = $filed_value;
+           $model->{$filed_name} = $filed_value;
             foreach($rules as $rule)
             {
                

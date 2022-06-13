@@ -124,3 +124,44 @@ function show(elm)
         elm.style.display = "block"
     }
 }
+
+
+function showLoadSpinner()
+{
+    let elm =  
+    `
+    <div class="overlay_spinner"></div>
+    <div class="load_spinner">
+    
+        <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+  </div>`;
+
+  document.body.insertAdjacentHTML("beforeend" , elm)
+}
+
+
+function removeLoadSpinner()
+{
+    document.querySelector(".load_spinner").remove();
+    document.querySelector(".overlay_spinner").remove();
+}

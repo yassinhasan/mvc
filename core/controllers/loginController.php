@@ -48,7 +48,7 @@ class loginController extends abstractController
                               $this->session->loginCode =  $hashedUsername;                        
                         }
                         $this->session->userId = $user->id;
-                        $this->session->flashMsg("success" , " you have login succuflly");
+                        $this->session->setFlashMsg("success" , " you have login succuflly");
                         $this->response->redirect("/smsm_mvc/home");
                     }else
                     {

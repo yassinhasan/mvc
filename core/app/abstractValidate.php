@@ -24,31 +24,33 @@ class abstractValidate
    public function required($field , $value , $message = null)
    {
       if($value == "")
-          $this->error[$field][] = "sorry $field is required"; 
+
+      
+          $this->error[$field][] = "sorry ".ucfirst($field)." is required"; 
 
      
    }
    public function email($field , $value)
    {
       if(! filter_var($value,FILTER_VALIDATE_EMAIL))
-      $this->error[$field][] = "sorry $field is not valid email";
+      $this->error[$field][] = "sorry ".ucfirst($field)."is not valid email";
    }
    public function string($field , $value)
    {
        $pattern = "/^([a-zA-Z][a-zA-Z\\d]*)$/";
        if(preg_match($pattern , $value) == false)
-       $this->error[$field][] = "sorry $field is must be string";
+       $this->error[$field][] = "sorry ".ucfirst($field)." is must be string";
    }
    public function isInt($field , $value)
    {
        if(! filter_var((int)$value,FILTER_VALIDATE_INT))
-       $this->error[$field][] = "sorry $field is not valid number";
+       $this->error[$field][] = "sorry ".ucfirst($field)." is not valid number";
    }
    public function min($field , $value , $matched)
    {
        if(strlen($value) < $matched )
        {
-           $this->error[$field][] = "sorry $field is must be less than $matched";
+           $this->error[$field][] = "sorry ".ucfirst($field)." is must be less than $matched";
        }
      
    }
@@ -56,7 +58,7 @@ class abstractValidate
    {
        if(strlen($value) > $matched )
        {
-           $this->error[$field][] = "sorry $field is must be more than $matched";
+           $this->error[$field][] = "sorry ".ucfirst($field)." is must be more than $matched";
        }
      
    }
@@ -65,7 +67,7 @@ class abstractValidate
 
        if(strlen($value) != $matched )
        {
-           $this->error[$field][] = "sorry $field is must be equal $matched";
+           $this->error[$field][] = "sorry".ucfirst($field)." is must be equal $matched";
        }
      
    }
@@ -74,7 +76,7 @@ class abstractValidate
        $matchedValue = $this->request->getBody()[$matched];
        if($value !== $matchedValue )
        {
-           $this->error[$field][] = "sorry $field is must be equal to  $matched";
+           $this->error[$field][] = "sorry ".ucfirst($field)." is must be equal to  $matched";
        }
      
    }

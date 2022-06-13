@@ -4,16 +4,20 @@ namespace smsm_mvc\core\controllers;
 use smsm_mvc\core\app\Application;
 use smsm_mvc\core\app\cookie;
 use smsm_mvc\core\app\encryptDecrypt;
+use smsm_mvc\core\lib\sendMessageClass;
+use smsm_mvc\core\lib\showMessagesFromPostRequest;
+use smsm_mvc\core\models\forgetPasswordModel;
 use smsm_mvc\core\models\loginModel;
 
 class forgetPasswordController extends abstractController
 {
     use encryptDecrypt;
+    use showMessagesFromPostRequest;
     public function __construct()
     {
         
         parent::__construct();
-        $this->model = new loginModel;
+        $this->model = new forgetPasswordModel;
         $this->data["title"] = "forget password";
         $this->data['model'] = $this->model;
         $this->data['links'] = [
@@ -26,7 +30,56 @@ class forgetPasswordController extends abstractController
         // forget password
         public  function forgetPassword()
         {
-            $this->response->renderView("forgetpassword" , $this->data );
+            // if post request
+            if($this->request->getMethod() == "POST")
+            {
+     
+
+                $email= $this->request->getBody()['email'];
+                
+                // if this is valid email  
+                if($this->validate->isValid($this->model , $this->model->rules() , $this->request->getBody()))
+                {
+                    // if this email is found id db in tables app_users
+                    if( $this->model->isValidEmail($email))
+                    {
+                        $emailMessage = new sendMessageClass();
+                        $emailMessage->prepareMessage([
+                            'to' => "$email" ,
+                            'to_name' => 'marwa medhat' , 
+                            'subject' => ' this is test'  ,
+                            'body'  => "<h5> hello <span style='color:red ; fontSize: 22px;'> Marwa medhat </span> </h5>" , 
+                            'alt_body' => 'empty'
+                        ]);
+                        if($emailMessage->send())
+                        {
+                            $this->jData['success'] = "Message has been sent";
+                        }
+                       else
+                        {
+                          //  $this->validate->addCustomError("email" , "Sorry This Is Problem In Sending Email Now");
+                            $this->jData['errors'] =  $this->validate->getFirstError("email"); 
+                        }
+
+                    }else
+                    {
+                        $this->validate->addCustomError("email" , "Sorry This email Is not Found");
+                        $this->jData['errors'] =  $this->validate->getFirstError("email");
+                        
+                    }
+                  
+                 
+                }else
+                {
+                    $this->jData['errors'] =  $this->validate->getFirstError("email");
+                }
+                $this->json();
+            
+            }else
+            {
+                $this->response->renderView("forgetpassword" , $this->data );
+            }
+            
         }
 
         /*
@@ -53,11 +106,7 @@ class forgetPasswordController extends abstractController
            change password into db according to this email
             
         */
-        public function resetPassword()
-        {
-            $data = $this->request->getBody();
-            pre($data);
-        }
+
 
 
 

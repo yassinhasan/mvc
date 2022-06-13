@@ -6,11 +6,12 @@ class notfoundController extends abstractController
 {
 
 
+    public $data = [
+        "title" => "notfound"
+    ];
     public function notfound()
     {
-        $data = [
-            "title" => "notfound"
-        ];
-        echo "notfound hello ";
+       
+        $this->response->renderView("notfound" , $this->data);
     }
 }

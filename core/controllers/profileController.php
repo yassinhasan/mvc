@@ -36,7 +36,7 @@ class profileController extends abstractController
             if($this->model->updateProfileInfo($id , $data))
             {
                 $this->jData['succ'] =  "done";
-                $this->session->flashMsg("success" , " you have updated ypur profile succuflly");
+                $this->session->setFlashMsg("success" , " you have updated ypur profile succuflly");
                 $this->json();
             }
         }else
@@ -67,7 +67,7 @@ class profileController extends abstractController
             if($this->model->updateProfileImage($id , $imagName))
             {
                 $this->jData['succ'] =  "done";
-                $this->session->flashMsg("success_img" , " you have updated your profile image succuflly");
+                $this->session->setFlashMsg("success_img" , " you have updated your profile image succuflly");
                 $this->json();
             }
         }

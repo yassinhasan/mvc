@@ -24,7 +24,7 @@ class abstractController
 
     public function json()
     {
-      echo  json_encode($this->jData , JSON_PRETTY_PRINT);
+      echo   json_encode($this->jData , JSON_PRETTY_PRINT);
       
     }
 }

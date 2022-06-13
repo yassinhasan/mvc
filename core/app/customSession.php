@@ -28,7 +28,7 @@ class customSession  extends SessionHandler
        }
 
     }
-    public function flashMsg($key , $value)
+    public function setFlashMsg($key , $value)
     {
         $_SESSION[self::FLASH_MSG][$key] = [
             "remove" => false , 
@@ -38,7 +38,10 @@ class customSession  extends SessionHandler
 
     public function hasFlashMsg($key)
     {
-        return isset($_SESSION[self::FLASH_MSG][$key]);
+       if(isset($_SESSION[self::FLASH_MSG][$key]) )
+       {
+           return $_SESSION[self::FLASH_MSG][$key]['remove'] == true;
+       }
     }
     public function getFlashMsg($key)
     {
@@ -72,9 +75,10 @@ class customSession  extends SessionHandler
         {
             foreach($_SESSION[self::FLASH_MSG] as $key => $value)
             {
+               
                 if($_SESSION[self::FLASH_MSG][$key]['remove'] == true)
                 {
-                    $data =  $_SESSION[self::FLASH_MSG][$key];
+                    $data =  $_SESSION[self::FLASH_MSG][$key]['msg'];
                     unset($_SESSION[self::FLASH_MSG][$key]);
                 }
             };

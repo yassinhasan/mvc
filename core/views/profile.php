@@ -21,8 +21,8 @@ use smsm_mvc\core\app\user;
 <div class="card-body">
   <?php $this->view->startPostForm($model , $this->request->baseUrl()."profile/saveProfile"); ?>
         <?php 
-            $this->view->flashMsg('success');
-            $this->view->flashMsg('success_img');
+            $this->view->getFlashMsg('success');
+            $this->view->getFlashMsg('success_img');
         ?>
     <ul class="list-group">
         <li class="main-list list-group-item d-flex justify-content-between align-items-start">

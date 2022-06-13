@@ -39,6 +39,6 @@ $app->router->get("/profile",[ profileController::class , "profile"]);
 $app->router->post("/profile/saveProfile",[ profileController::class , "saveProfile"]);
 $app->router->post("/profile/updateProfileImage",[ profileController::class , "updateProfileImage"]);
 $app->router->get("/forgetPassword",[ forgetPasswordController::class ,  "forgetPassword"]);
-$app->router->post("/forgetPassword/resetPassword",[ forgetPasswordController::class ,  "resetPassword"]);
+$app->router->post("/forgetPassword",[ forgetPasswordController::class ,  "forgetPassword"]);
 
 $app->run();
