@@ -7,7 +7,7 @@ $user = user::findUser();
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/smsm_mvc/">home</a>
+        <a class="navbar-brand" href="/home">home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,13 +16,13 @@ $user = user::findUser();
             <?php
             if(!$user): ?>
             <li class="nav-item">
-            <a class="nav-link" href="/smsm_mvc/register">register</a>
+            <a class="nav-link" href="/register">register</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">|</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/smsm_mvc/login">login</a>
+            <a class="nav-link" href="/login">login</a>
             </li>
             <?php  endif ;?>
         </ul>
@@ -34,9 +34,9 @@ $user = user::findUser();
                     <?= $user->firstName." ".$user->lastName?>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/smsm_mvc/profile">profile</a></li>
+                    <li><a class="dropdown-item" href="/profile">profile</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/smsm_mvc/logout">logout</a></li>
+                    <li><a class="dropdown-item" href="/logout">logout</a></li>
                 </ul>
             <?php endif;?>
 

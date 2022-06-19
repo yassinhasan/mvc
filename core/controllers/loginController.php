@@ -49,7 +49,7 @@ class loginController extends abstractController
                         }
                         $this->session->userId = $user->id;
                         $this->session->setFlashMsg("success" , " you have login succuflly");
-                        $this->response->redirect("/smsm_mvc/home");
+                        $this->response->redirect("/home");
                     }else
                     {
                         $this->validate->addCustomError("password" , "sorry this Password is not matched");

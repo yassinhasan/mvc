@@ -31,12 +31,11 @@ class Rrequest
     }
     public function getPath()
     {
-        $path = "";
 
         if(isset($_SERVER["REQUEST_URI"]))
         {
-            
-            $path =  str_replace("/smsm_mvc","",$_SERVER["REQUEST_URI"] );
+
+           $path = $_SERVER["REQUEST_URI"];
             $position = strpos($path , "?");
          
             if($position != false)

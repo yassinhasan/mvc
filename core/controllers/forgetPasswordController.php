@@ -101,7 +101,7 @@ class forgetPasswordController extends abstractController
             scenario 
             by click on reset password 
 
-            fetch url /smsm_mvc/forgetPassword/resetPassword by post
+            fetch url //forgetPassword/resetPassword by post
             then send email to this url 
             and if email is already sent 
             sent suc msg email is already sent and  check your email
@@ -113,7 +113,7 @@ class forgetPasswordController extends abstractController
             insert into user where email is found this code
 
             send code to link 
-            /smsm_mvc/forgetPassword/resetPassword?code=-----------
+            //forgetPassword/resetPassword?code=-----------
            then whenn code come from email
            select user where code = code if found delete this code
            then show reset password page 

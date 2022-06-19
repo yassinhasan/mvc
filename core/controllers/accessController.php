@@ -23,7 +23,7 @@ class accessController extends abstractController
         $currentPath = Application::$app->request->currentPath;
         $isLogged = authenticateController::isLogged();
         if (!in_array($currentPath, $this->excpetions) AND !$isLogged) {
-            $this->response->redirect("/smsm_mvc/login");
+            $this->response->redirect("/login");
         }
     }
 }

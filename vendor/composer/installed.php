@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'a186d9f4c56650a761005b6a263e08e23190786e',
+    'reference' => 'd36dc5911c2e009093fe1e282ff5ec1943b5fbbd',
     'name' => 'yassin/myproject',
   ),
   'versions' => 
@@ -81,7 +81,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'a186d9f4c56650a761005b6a263e08e23190786e',
+      'reference' => 'd36dc5911c2e009093fe1e282ff5ec1943b5fbbd',
     ),
   ),
 );

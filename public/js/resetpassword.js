@@ -31,7 +31,7 @@ reset_passwrod_btn.addEventListener("click",(e)=>
         showAlert('success' , 'Success' , data.success)
         setTimeout(function()
         {
-            window.location.href = "/smsm_mvc"
+            window.location.href = "/"
         },3000)
       
     }else if(data.update_error)

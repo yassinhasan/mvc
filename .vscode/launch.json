@@ -4,7 +4,7 @@
             "type": "vscode-edge-devtools.debug",
             "request": "launch",
             "name": "Launch Microsoft Edge and open the Edge DevTools",
-            "url": "http://localhost:80/smsm_mvc",
+            "url": "http://localhost:80/",
             "webRoot": "${workspaceFolder}"
         },
 
@@ -12,14 +12,14 @@
             "type": "vscode-edge-devtools.debug",
             "request": "launch",
             "name": "Launch Microsoft Edge and open the Edge DevTools",
-            "url": "http://localhost:80/smsm_mvc",
+            "url": "http://localhost:80/",
             "webRoot": "${workspaceFolder}"
         },
         {
             "name": "Launch Edge",
             "request": "launch",
             "type": "msedge",
-            "url": "http://localhost:80/smsm_mvc",
+            "url": "http://localhost:80/",
             "webRoot": "${workspaceFolder}"
         },
     {

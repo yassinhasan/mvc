@@ -27,7 +27,7 @@ class logoutController extends abstractController
                 $this->cookie->kill("loginCode");
                 $this->session->kill();
             }
-            $this->response->redirect("/smsm_mvc/login");
+            $this->response->redirect("/login");
         }
     
 
