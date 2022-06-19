@@ -1,7 +1,7 @@
 <?php
-namespace smsm_mvc\core\models;
+namespace core\models;
 
-use smsm_mvc\core\app\Rrequest;
+use core\app\Rrequest;
 
 class contactModel extends abstractModel
 {

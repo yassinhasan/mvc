@@ -1,7 +1,7 @@
 <?php
-namespace smsm_mvc\core\controllers;
+namespace core\controllers;
 
-use smsm_mvc\core\app\Application;
+use core\app\Application;
 
 class authenticateController extends abstractController
 

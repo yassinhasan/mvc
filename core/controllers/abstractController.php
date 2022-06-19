@@ -1,14 +1,15 @@
 <?php
-namespace smsm_mvc\core\controllers;
+namespace core\controllers;
 
-use smsm_mvc\core\app\Router;
-use smsm_mvc\core\app\Application;
+use core\app\Router;
+use core\app\Application;
 
 class abstractController
 {
     protected $response;
     protected $request;
     protected $session;
+    protected $customExceptions;
     protected $cookie;
     protected $data = [];
     protected $model = null;
@@ -20,6 +21,7 @@ class abstractController
         $this->validate =   Application::$app->validate;
         $this->session =   Application::$app->session;
         $this->cookie =   Application::$app->cookie;
+        $this->customExceptions =   Application::$app->customExceptions;
     }
 
     public function json()

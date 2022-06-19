@@ -1,9 +1,9 @@
 <?php
 
-namespace smsm_mvc\core\controllers;
+namespace core\controllers;
 
-use smsm_mvc\core\app\Application;
-use smsm_mvc\core\controllers\abstractController;
+use core\app\Application;
+use core\controllers\abstractController;
 
 
 class accessController extends abstractController
@@ -14,7 +14,8 @@ class accessController extends abstractController
         "/login",
         "/register",
         "/forgetPassword",
-        "/forgetPassword/resetPassword"
+        "/resetPassword" , 
+        "/updateNewPassword"
     ];
     public  function isLogged()
     {

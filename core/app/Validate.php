@@ -1,10 +1,16 @@
 <?php 
-namespace smsm_mvc\core\app;
+namespace core\app;
 class Validate extends abstractValidate
 {
     public function getErrors()
     {
-        return $this->error;
+        $errors = [];
+        foreach($this->error as $key=>$value)
+        {
+            $errors[$key] =$this->error[$key][0] ;
+            
+        }
+        return $errors;
     }
     
     public function isValid($model , $allRules , $data)

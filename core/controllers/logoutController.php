@@ -1,10 +1,10 @@
 <?php
-namespace smsm_mvc\core\controllers;
+namespace core\controllers;
 
-use smsm_mvc\core\app\Application;
-use smsm_mvc\core\app\cookie;
-use smsm_mvc\core\app\encryptDecrypt;
-use smsm_mvc\core\models\loginModel;
+use core\app\Application;
+use core\app\cookie;
+use core\app\encryptDecrypt;
+use core\models\loginModel;
 
 class logoutController extends abstractController
 {

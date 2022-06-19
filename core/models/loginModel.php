@@ -1,9 +1,9 @@
 <?php
-namespace smsm_mvc\core\models;
+namespace core\models;
 
-use smsm_mvc\core\app\Rrequest;
-use smsm_mvc\core\app\Validate;
-use smsm_mvc\core\models\abstractModel;
+use core\app\Rrequest;
+use core\app\Validate;
+use core\models\abstractModel;
 class loginModel extends abstractModel
 {
 

@@ -1,7 +1,7 @@
 <?php 
-namespace smsm_mvc\core\app;
+namespace core\app;
 
-use smsm_mvc\core\app\Application;
+use core\app\Application;
 use PDO;
 class user 
 {

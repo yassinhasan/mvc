@@ -1,9 +1,9 @@
 <?php 
-namespace smsm_mvc\core\controllers;
+namespace core\controllers;
 
-use smsm_mvc\core\app\Application;
-use smsm_mvc\core\app\uploadImage;
-use smsm_mvc\core\models\profileModel;
+use core\app\Application;
+use core\app\uploadImage;
+use core\models\profileModel;
 
 class profileController extends abstractController 
 {

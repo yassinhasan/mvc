@@ -1,9 +1,9 @@
 <?php
-namespace smsm_mvc\core\models;
+namespace core\models;
 
-use smsm_mvc\core\app\Application;
-use smsm_mvc\core\app\Response;
-use smsm_mvc\core\app\Validate;
+use core\app\Application;
+use core\app\Response;
+use core\app\Validate;
 
 abstract class abstractModel 
 {

@@ -1,9 +1,9 @@
 <?php
 ini_set("display_errors" , 1);
-use smsm_mvc\core\app\Application;
-use smsm_mvc\core\controllers\homecontroller;
-use smsm_mvc\core\controllers\registerController;
-use smsm_mvc\core\controllers\contactController;
+use core\app\Application;
+use core\controllers\homecontroller;
+use core\controllers\registerController;
+use core\controllers\contactController;
 require_once "config/config.php";
 require_once "vendor/autoload.php";
 require_once "config/helper.php";

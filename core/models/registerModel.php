@@ -1,8 +1,8 @@
 <?php
-namespace smsm_mvc\core\models;
+namespace core\models;
 
-use smsm_mvc\core\app\Rrequest;
-use smsm_mvc\core\app\Validate;
+use core\app\Rrequest;
+use core\app\Validate;
 
 class registerModel extends abstractModel
 {

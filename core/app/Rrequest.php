@@ -1,5 +1,5 @@
 <?php
-namespace smsm_mvc\core\app;
+namespace core\app;
 class Rrequest
 {
     private $get = "GET";
@@ -24,6 +24,11 @@ class Rrequest
        return $_SERVER['REQUEST_METHOD'] == $this->post;
     }
 
+    public function get($key)
+    {
+        if(array_key_exists($key, $_GET))
+        return $_GET[$key];
+    }
     public function getPath()
     {
         $path = "";

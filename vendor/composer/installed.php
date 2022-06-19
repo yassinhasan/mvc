@@ -6,8 +6,8 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'cd1edaf84c41eec8a0cb4d680fab1e6ec2ef8bba',
-    'name' => 'yassin/smsm_mvc',
+    'reference' => 'a186d9f4c56650a761005b6a263e08e23190786e',
+    'name' => 'yassin/myproject',
   ),
   'versions' => 
   array (
@@ -22,12 +22,12 @@
     ),
     'phpmailer/phpmailer' => 
     array (
-      'pretty_version' => 'v6.6.0',
-      'version' => '6.6.0.0',
+      'pretty_version' => 'v6.6.2',
+      'version' => '6.6.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e43bac82edc26ca04b36143a48bde1c051cfd5b1',
+      'reference' => 'b52ed06864fdda81b82ec8bf564cf15d45ed4f95',
     ),
     'phpoption/phpoption' => 
     array (
@@ -74,14 +74,14 @@
       ),
       'reference' => '264dce589e7ce37a7ba99cb901eed8249fbec92f',
     ),
-    'yassin/smsm_mvc' => 
+    'yassin/myproject' => 
     array (
       'pretty_version' => 'dev-main',
       'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => 'cd1edaf84c41eec8a0cb4d680fab1e6ec2ef8bba',
+      'reference' => 'a186d9f4c56650a761005b6a263e08e23190786e',
     ),
   ),
 );

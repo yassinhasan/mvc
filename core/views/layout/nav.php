@@ -1,7 +1,7 @@
 <?php
 
-use smsm_mvc\core\app\Application;
-use smsm_mvc\core\app\user;
+use core\app\Application;
+use core\app\user;
 $user = user::findUser();
 
 ?>

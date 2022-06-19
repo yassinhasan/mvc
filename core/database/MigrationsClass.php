@@ -1,7 +1,7 @@
 <?php
-namespace smsm_mvc\core\database;
+namespace core\database;
 
-use smsm_mvc\core\app\Application;
+use core\app\Application;
 use PDO;
 class MigrationsClass 
 {

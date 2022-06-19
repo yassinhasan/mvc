@@ -1,5 +1,5 @@
 <?php
-namespace smsm_mvc\core\app;
+namespace core\app;
 class Response
 {
     protected $allLayout = [

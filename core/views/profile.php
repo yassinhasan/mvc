@@ -1,6 +1,6 @@
 <?php
 
-use smsm_mvc\core\app\user;
+use core\app\user;
 
 ?>
     <div class="card" style="width: 18rem;margin-top: 50px">

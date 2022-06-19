@@ -1,15 +1,16 @@
 <?php
 ini_set("display_errors" , 1);
-use smsm_mvc\core\app\Application;
-use smsm_mvc\core\controllers\accessController;
-use smsm_mvc\core\controllers\homecontroller;
-use smsm_mvc\core\controllers\registerController;
-use smsm_mvc\core\controllers\loginController;
-use smsm_mvc\core\controllers\logoutController;
-use smsm_mvc\core\controllers\contactController;
-use smsm_mvc\core\controllers\forgetPasswordController;
-use smsm_mvc\core\controllers\notfoundController;
-use smsm_mvc\core\controllers\profileController;
+use core\app\Application;
+use core\controllers\accessController;
+use core\controllers\homecontroller;
+use core\controllers\registerController;
+use core\controllers\loginController;
+use core\controllers\logoutController;
+use core\controllers\contactController;
+use core\controllers\forgetPasswordController;
+use core\controllers\notfoundController;
+use core\controllers\profileController;
+use core\controllers\resetPasswordController;
 
 require_once "config/config.php";
 require_once "vendor/autoload.php";
@@ -31,6 +32,7 @@ $config = [
         
     ];
   
+   
 $app = new Application($config['db']);
 $app->router->get("/",[ homecontroller::class , "home"]);
 $app->router->get("/notfound",[ notfoundController::class , "notfound"]);
@@ -47,5 +49,7 @@ $app->router->post("/profile/saveProfile",[ profileController::class , "saveProf
 $app->router->post("/profile/updateProfileImage",[ profileController::class , "updateProfileImage"]);
 $app->router->get("/forgetPassword",[ forgetPasswordController::class ,  "forgetPassword"]);
 $app->router->post("/forgetPassword",[ forgetPasswordController::class ,  "forgetPassword"]);
+$app->router->get("/resetPassword",[ resetPasswordController::class ,  "resetPassword"]);
+$app->router->post("/resetPassword",[ resetPasswordController::class ,  "resetPassword"]);
 
 $app->run();

@@ -1,5 +1,5 @@
 <?php
-namespace smsm_mvc\core\database;
+namespace core\database;
 
 use PDO;
 
@@ -152,16 +152,14 @@ class Database
         {
             $sql .= $this->where;
         }
+        
         $this->stmt = $this->query($sql, $this->bindings) ;
-        return $this;
-        
-        
-        
+        return $this; 
     }
 
     public function fetch()
     {
-      
+     
       $results = $this->stmt->fetchAll(PDO::FETCH_CLASS);
       $result = array_shift($results);
       $this->reset();

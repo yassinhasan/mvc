@@ -1,9 +1,8 @@
 <?php 
-namespace smsm_mvc\core\app;
-
-use smsm_mvc\core\database\Database;
-use smsm_mvc\core\database\MigrationsClass;
-use smsm_mvc\core\controllers\accessController;
+namespace core\app;
+use core\database\Database;
+use core\database\MigrationsClass;
+use core\controllers\accessController;
 
 class Application 
 {
@@ -17,6 +16,7 @@ class Application
     public $cookie;
     public $migrations;
     public  $db;
+    public $customExceptions;
     public static $app;
     public function __construct(array $config)
     {   
@@ -31,6 +31,7 @@ class Application
         $this->response = new Response();
         $this->db      = new Database($config);
         $this->migrations = new MigrationsClass();
+        $this->customExceptions  = new customExceptions();
     }
 
     public function run()

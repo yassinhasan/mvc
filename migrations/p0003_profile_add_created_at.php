@@ -1,6 +1,6 @@
 <?php
 
-use smsm_mvc\core\app\Application;
+use core\app\Application;
 
 class p0003_profile_add_created_at 
 {

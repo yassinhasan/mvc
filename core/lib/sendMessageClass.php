@@ -1,9 +1,9 @@
 <?php
-namespace smsm_mvc\core\lib;
+namespace core\lib;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-use smsm_mvc\core\app\Application;
+use core\app\Application;
 
 class sendMessageClass 
 {

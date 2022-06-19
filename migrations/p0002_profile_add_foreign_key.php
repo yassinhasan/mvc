@@ -1,6 +1,6 @@
 <?php
 
-use smsm_mvc\core\app\Application;
+use core\app\Application;
 
 class p0002_profile_add_foreign_key 
 {

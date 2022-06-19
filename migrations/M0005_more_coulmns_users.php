@@ -1,6 +1,6 @@
 <?php
 
-use smsm_mvc\core\app\Application;
+use core\app\Application;
 
 class M0005_more_coulmns_users 
 {

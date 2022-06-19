@@ -1,5 +1,5 @@
 <?php
-namespace smsm_mvc\core\lib;
+namespace core\lib;
 trait loadingSpinnerClass 
 {
     public function loadSpinner()

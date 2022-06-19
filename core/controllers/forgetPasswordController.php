@@ -1,13 +1,14 @@
 <?php
-namespace smsm_mvc\core\controllers;
+namespace core\controllers;
 
-use smsm_mvc\core\app\Application;
-use smsm_mvc\core\app\cookie;
-use smsm_mvc\core\app\encryptDecrypt;
-use smsm_mvc\core\lib\sendMessageClass;
-use smsm_mvc\core\lib\showMessagesFromPostRequest;
-use smsm_mvc\core\models\forgetPasswordModel;
-use smsm_mvc\core\models\loginModel;
+use core\app\Application;
+use core\app\cookie;
+use core\app\encryptDecrypt;
+use core\lib\sendMessageClass;
+use core\lib\showMessagesFromPostRequest;
+use core\models\forgetPasswordModel;
+use core\models\loginModel;
+use core\models\resetPasswordModel;
 
 class forgetPasswordController extends abstractController
 {
@@ -43,16 +44,30 @@ class forgetPasswordController extends abstractController
                     // if this email is found id db in tables app_users
                     if( $this->model->isValidEmail($email))
                     {
+                        $user = $this->model->getUserLostPassword();
+                        $userName = $user->firstName." ".$user->lastName;
+                        $passwordRecoveryCode = password_hash($userName , PASSWORD_DEFAULT);
+                        $forgetUrl =  $this->request->baseUrl()."resetPassword?code=$passwordRecoveryCode";
+
                         $emailMessage = new sendMessageClass();
                         $emailMessage->prepareMessage([
-                            'to' => "$email" ,
-                            'to_name' => 'marwa medhat' , 
-                            'subject' => ' this is test'  ,
-                            'body'  => "<h5> hello <span style='color:red ; fontSize: 22px;'> Marwa medhat </span> </h5>" , 
+                            'to' => $email ,
+                            'to_name' => $userName , 
+                            'subject' => 'reset password '  ,
+                            'body'  => "<h5> hello <span style='color:red ; fontSize: 22px;'> $userName </span> </h5>
+                            <p>
+                            you have request to reset password 
+                            if you already request this please click in this link below
+                            
+                            </p>
+                            <a href='$forgetUrl'>click here </a>
+                            " , 
                             'alt_body' => 'empty'
                         ]);
+                        $this->model->updateUserForgetPasswordCode($user ,$passwordRecoveryCode);
                         if($emailMessage->send())
                         {
+                            
                             $this->jData['success'] = "Message has been sent";
                         }
                        else
@@ -106,6 +121,9 @@ class forgetPasswordController extends abstractController
            change password into db according to this email
             
         */
+
+
+
 
 
 
