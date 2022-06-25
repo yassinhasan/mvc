@@ -32,47 +32,72 @@ class abstractValidate
    }
    public function email($field , $value)
    {
-      if(! filter_var($value,FILTER_VALIDATE_EMAIL))
-      $this->error[$field][] = "sorry ".ucfirst($field)."is not valid email";
+        if($value != null or $value != "") 
+        {
+            if(! filter_var($value,FILTER_VALIDATE_EMAIL))
+        $this->error[$field][] = "sorry ".ucfirst($field)."is not valid email"; 
+        }
+
    }
    public function string($field , $value)
    {
-       $pattern = "/^([a-zA-Z][a-zA-Z\\d]*)$/";
-       if(preg_match($pattern , $value) == false)
-       $this->error[$field][] = "sorry ".ucfirst($field)." is must be string";
+        if($value != null or $value != "") 
+        {
+            $pattern = "/^([a-zA-Z][a-zA-Z\\d]*)$/";
+            if(preg_match($pattern , $value) == false)
+            $this->error[$field][] = "sorry ".ucfirst($field)." is must be string";
+        };
+
    }
    public function isInt($field , $value)
    {
-       if(! filter_var((int)$value,FILTER_VALIDATE_INT))
-       $this->error[$field][] = "sorry ".ucfirst($field)." is not valid number";
+       
+       if($value != null or $value !== "")
+       {
+            if(! filter_var((int)$value,FILTER_VALIDATE_INT))
+            $this->error[$field][] = "sorry ".ucfirst($field)." is not valid number";
+       }
+
    }
    public function min($field , $value , $matched)
    {
-       if(strlen($value) < $matched )
-       {
-           $this->error[$field][] = "sorry ".ucfirst($field)." is must be less than $matched";
-       }
+        if($value != null or $value != "") 
+        {
+            if(strlen($value) < $matched )
+            {
+                $this->error[$field][] = "sorry ".ucfirst($field)." is must be less than $matched";
+            }
+        }
+
      
    }
    public function max($field , $value , $matched)
    {
-       if(strlen($value) > $matched )
-       {
-           $this->error[$field][] = "sorry ".ucfirst($field)." is must be more than $matched";
-       }
+        if($value != null or $value != "") 
+        {
+            if(strlen($value) > $matched )
+            {
+                $this->error[$field][] = "sorry ".ucfirst($field)." is must be more than $matched";
+            }
+        }
+
      
    }
    public function equal($field , $value , $matched)
    {
-
-       if(strlen($value) != $matched )
+       if($value != null or $value != "") 
        {
-           $this->error[$field][] = "sorry".ucfirst($field)." is must be equal $matched";
+            if(strlen($value) != $matched )
+            {
+                $this->error[$field][] = "sorry".ucfirst($field)." is must be equal $matched";
+            }
        }
+
      
    }
    public function matched($field , $value , $matched)
    {
+   
        $matchedValue = $this->request->getBody()[$matched];
        if($value !== $matchedValue )
        {
@@ -85,7 +110,7 @@ class abstractValidate
        //[Validate::FIELD__UNIQUE_IN_OHER =>["app_users", "email" , "userId" , $id] ]
 
        // $matched = "app_users", "email" , "userId" , $id
-       
+     
        list($table,$selected , $matchedTo , $matched_value) = $matched ;
        $sql = " SELECT $selected FROM $table WHERE $matchedTo !=  :id AND $selected = :value ";
 
@@ -103,7 +128,7 @@ class abstractValidate
    }
    public function unique($field , $value , $matched)
    {
-
+   
        $table = $matched[0];
        $matched = $matched[1];
        $sql = " SELECT $field FROM $table WHERE $field =  ?  ";

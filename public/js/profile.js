@@ -27,8 +27,11 @@ cancel_profile.addEventListener("click",()=>
 
 
 
-save_profile.addEventListener("click",()=>
+save_profile.addEventListener("click",(e)=>
 {
+    e.preventDefault();
+    showLoadSpinner();
+    removeAnyValidation()
     let formdata = new FormData(form);
     fetch(formURL ,
     {
@@ -37,20 +40,17 @@ save_profile.addEventListener("click",()=>
     })
     .then(resp=>resp.json())
     .then(data=>{
-        removeErrors()
+        removeLoadSpinner();
         if(data.errors)
         {
-            for(error in data.errors)
+            for(let err in data.errors)
             {
-                let input_has_error = getElm(`error_${error}`);
-                input_has_error.classList.add("is-invalid");
-                let error_msg = data.errors[error];
-                let error_div = "<div class='invalid-feedback'>"+error_msg[0]+"</div>";
-                input_has_error.insertAdjacentHTML("afterend" , error_div)
+            
+             makeInvalidInput(err  , "bio" ,data.errors[err] )
             }
         }else
         {
-            console.log("re")
+            showAlert("success" ,"Success !" , " you have updated your profile");
             window.location.reload();
         }
     })
@@ -61,7 +61,9 @@ save_profile.addEventListener("click",()=>
 
 profile_iamge.addEventListener("click",()=>
 {
-    profile_image_input.click();
+     hideAlert();
+     profile_image_input.click();
+    removeAnyValidation()
 })
 
 
@@ -71,25 +73,28 @@ singleUpload(profile_image_input , ALLOWD_TYPE_IMAGE , ALLOWD_SIZE ,showImagePor
 let oldsrc = profile_iamge.getAttribute("src");
 function showImagePorfile(file , imagesrc)
 {
+    
     if(!file.type.includes(ALLOWD_TYPE_IMAGE))
     {
-        profile_iamge.src = oldsrc;
-        showImageErr()
+        hide(update_profile_image);
+        profile_iamge.src = "./public/uploades/images/error.png";
+        makeInvalidInput("image"  , null ,"sorry you suoud select only images " );
+        
 
     }else
     {
-        removeErrors()
-          profile_iamge.src =  imagesrc;  
+        removeAnyValidation();
+        profile_iamge.src =  imagesrc;  
+        show(update_profile_image);
+        show(cancel_profile_image);
     }
  
-    show(update_profile_image);
-    show(cancel_profile_image);
     cancel_profile_image.addEventListener("click",()=>
     {
         hide(update_profile_image);
         hide(cancel_profile_image);
         profile_iamge.src = oldsrc;
-        removeErrors()
+        removeAnyValidation()
     })
     update_profile_image.addEventListener("click",()=>
     {
@@ -101,61 +106,31 @@ function showImagePorfile(file , imagesrc)
 
 function fetchUpdateImage(form,url)
 {
+   
     let formdata = new FormData(form);
     fetch(url ,
     {
         method: "post" ,
         body  : formdata
     })
+    
     .then(resp=>resp.json())
     .then(data=>{
-        removeErrors()
+        removeAnyValidation()
         if(data.errors)
         {
-            for(error in data.errors)
+            for(err in data.errors)
             {
-                let input_has_error = getElm(`error_${error}`);
-                input_has_error.classList.add("is-invalid");
-                let error_msg = data.errors[error];
-                let error_div = "<div class='invalid-feedback'>"+error_msg[0]+"</div>";
-                input_has_error.insertAdjacentHTML("afterend" , error_div)
+                makeInvalidInput(err  , null ,data.errors[err] )
             }
         }else
         {
             hide(update_profile_image);
             hide(cancel_profile_image);
-            let input_has_error = getElm(`error_image`);
-            input_has_error.classList.add("valid");
-            let valid_div = "<div class='valid-feedback' style='display:block'> profile is updated succefully</div>";
-            input_has_error.insertAdjacentHTML("afterend" , valid_div)
+           
+            hideAlert();
+            showAlert("success" ,"Success !" , " you have updated your profile");
         }
     
     })
-}
-
-
-function showImageErr()
-{
-    let input_has_error = getElm(`error_image`);
-    input_has_error.classList.add("is-invalid");
-    let error_div = `<div class='invalid-feedback' style="display:block;">sorry you suoud select only images </div>`;
-    input_has_error.insertAdjacentHTML("beforeend" , error_div)
-}
-function removeErrors()
-{
-    let invalidDivs = getAllElm('invalid-feedback');
-    if(invalidDivs)
-    {
-        invalidDivs.forEach(element => {
-            element.remove()
-        });
-    }
-
-    let divHasisinvalid = getAllElm('is-invalid');
-    if(divHasisinvalid)
-    {
-        divHasisinvalid.forEach(element => {
-            element.classList.remove("is-invalid");
-        });
-    }
 }

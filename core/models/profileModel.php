@@ -17,8 +17,8 @@ class profileModel extends abstractModel
                             Validate::FIELD__REQUIRED , Validate::FIELD__EMAIL  ,
                             [Validate::FIELD__UNIQUE_IN_OHER =>["app_users", "email" , "id" , $id] ]
                             ] , 
-                 'mobile'=> [Validate::FIELD__REQUIRED , Validate::FIELD__INT ,[Validate::FIELD__EQUAL => 10 ]],
-                'bio'=> [Validate::FIELD__REQUIRED]
+                 'mobile'=> [ Validate::FIELD__INT ,[Validate::FIELD__EQUAL => 10 ]],
+                'bio'=> [Validate::FIELD__STRING , [Validate::FIELD__MAX => 150]]
                  ]
         ;
 
@@ -35,23 +35,27 @@ class profileModel extends abstractModel
     public function updateProfileInfo($id ,$data)
     {
         try {
+            // first update email and this must be required
             $this->data([
                 "email" => $data['email']
             ])->table("app_users")->where(" id =  ? " , $id)->update();
             
             $hasProfile = $this->from(self::$tableName)->where
             ("userId = ? " , $id)->select()->fetch();
+            // if has profile no need to enter userId
+            $mobile = $data['mobile'] == "" ? null : $data['mobile'];
             if($hasProfile)
             {
+                
                 $this->data([
-                    "mobile" => $data['mobile'] ,
+                    "mobile" => $mobile ,
                     "gender" => $data['gender'] ,
                     "bio" => $data['bio'] ,
                 ])->table(self::$tableName)->where(" userId =  ? " , $id)->update();
             }else
             {
                 $this->data([
-                    "mobile" => $data['mobile'] ,
+                    "mobile" => $mobile  ,
                     "gender" => $data['gender'] ,
                     "bio" => $data['bio'] ,
                     "userId" => $id

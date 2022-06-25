@@ -7,7 +7,8 @@ class customSession  extends SessionHandler
 {
 
     use encryptDecrypt; 
-    const SESSIONAME = "mvc";
+    const SESSIONAME = PROJECT_NAME;
+    const SESSION_EXPIRE = 3600 ; // 1 hr
     const FLASH_MSG = "flash_msg";
     public function __construct()
     {
@@ -17,6 +18,8 @@ class customSession  extends SessionHandler
         ini_set("session.use_only_cookies" , 1);
         ini_set("session.use_trans_sid" , 0);
         ini_set("session.save_handler", "files");
+        ini_set("session.gc_maxlifetime" , SELF::SESSION_EXPIRE);
+        session_set_cookie_params(SELF::SESSION_EXPIRE);
         session_set_save_handler($this,true);
         session_start();
        if (isset( $_SESSION[self::FLASH_MSG]))

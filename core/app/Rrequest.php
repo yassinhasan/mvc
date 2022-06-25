@@ -32,6 +32,7 @@ class Rrequest
     public function getPath()
     {
 
+        $path = null;
         if(isset($_SERVER["REQUEST_URI"]))
         {
 

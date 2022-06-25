@@ -6,7 +6,7 @@ use PDO;
 class user 
 {
 
-
+    public static $user = null;
     public static function findUser()
     {
         $stmt = Application::$app->db->pdo->prepare("
@@ -15,6 +15,7 @@ class user
         $stmt->bindValue(":id" , Application::$app->session->userId , PDO::PARAM_INT);
         $stmt->execute();
         $user = $stmt->fetchAll(PDO::FETCH_CLASS);
+        self::$user = $user;
         if($user) return array_shift($user);
     }
 
@@ -61,10 +62,19 @@ class user
         $profile = self::getProfile();
         if($profile AND $profile->image != null)
         {
-            return  Application::$app->request->toUpladesaFile("images/profile/$profile->image") ;
+            $userName = $profile->firstName.$profile->lastName;
+            $file = PROFILE_PATH.$userName.DS.$profile->image;
+            if(file_exists($file))
+            {
+               return  Application::$app->request->toUpladesaFile("images/profile/".$userName."/".$profile->image) ;  
+            }else
+            {
+                return Application::$app->request->toUpladesaFile("images/avatar.jpg");
+            }
+           
         }else
         {
-            return Application::$app->request->toUpladesaFile("images/profile.jpg");
+            return Application::$app->request->toUpladesaFile("images/avatar.jpg");
         }
 
 
@@ -79,9 +89,4 @@ class user
         $profile = self::getProfile();
         return !$profile ? null : $profile->gender ;
     }
-
-
-    
-    
-
 }

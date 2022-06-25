@@ -1,13 +1,13 @@
 
-let login_btn = getElm("login_btn");
+let register_btn = getElm("register_btn");
 let form = getElm("form");
-login_btn.addEventListener("click",(e)=>
+register_btn.addEventListener("click",(e)=>
 {
     e.preventDefault();
     showLoadSpinner();
     removeAnyValidation()
     let data = new FormData(form);
-    let url = login_btn.getAttribute("data_target"); 
+    let url = register_btn.getAttribute("data_target"); 
    fetch(url , {
        method: "post" , 
         body: data
@@ -19,18 +19,13 @@ login_btn.addEventListener("click",(e)=>
     {
         for(let err in data.errors)
         {
-         makeInvalidInput(err  ,null,data.errors[err] )
+         makeInvalidInput(err  , null, data.errors[err] )
         }
        
     }else if(data.success)
     {
        
-        window.location.href = "/home"
-      
-    }else if(data.success_admin)
-    {
-       
-        window.location.href = "/dashboard"
+        window.location.href = "/login"
       
     }else if(data.sql_error)
     {

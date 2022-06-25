@@ -25,7 +25,4 @@
 defined("FIRSTKEY")  ? FIRSTKEY : define("FIRSTKEY" , "dLnHU+CYIyhpvXoRVcgym+XQGihBcuFfXGiaFQA9bSQ=");
 defined("SECONDKEY")  ? SECONDKEY : define("SECONDKEY" , "sSbcYa1tapc1GwtF4IxDeSoyRxk4OguCIn573c3AY3YFnXYI5MopBqpH7Z//cvN3wlasidkiWvg2ZmZBlY7/ZA==");
 
-function projectNamespace($prjectName)
-{
-     return "namespace $prjectName\core\app ";
-}
+const PROJECT_NAME = 'smsm_mvc';

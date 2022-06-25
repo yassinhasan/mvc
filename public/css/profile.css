@@ -5,15 +5,18 @@
     width: auto !important;
     max-width: 600px;
 }
-.card-head form > div
+.card-head form .image_div
 {
-    width: 200px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
 }
+
+
 .card-head form > div > img 
 {
-    width: 200px;
-    height: 200px;
-    margin: 50px auto;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
     border: 1px solid #888;
@@ -21,11 +24,23 @@
 .card-head .display_name 
 {
     display: inline-block;
-    margin-top: -40px;
     font-size: 17px;
     text-transform: capitalize;
     font-weight: 600;
     font-family: sans-serif;
+    width: 100%;
+}
+.div_buttons button:nth-child(1)
+{
+    color: #fff;
+    border: none;
+}
+.div_buttons > button 
+{
+    margin-right: 10px;
+    font-size: .5rem;
+    
+    padding: 5px 16px;
 }
 .edit_profile
 {

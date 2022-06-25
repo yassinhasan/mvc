@@ -1,6 +1,6 @@
 <?php
 
-    $this->view->startPostForm($model);
+    $this->view->startPostForm($model , "/register");
     echo '<div class="row"> '   ;
     $this->view->renderInput( ["firstName" => "First Name" ,
                                  "lastName"   => "Last Name"] , "text" , "col-6");
@@ -11,8 +11,8 @@
                               "confirmPassword" => "Confirm Your Password"]
                                 , "password");
     $this->view->renderSubmitBtn(["name" => "save" , 
-    "class" => "primary" ,
-    "data" => "" ,
+    "class" => "primary register_btn" ,
+     "data" => "data_target='/register'" ,
     "label" => "submit"]);
     $this->view->endForm();
 ?>

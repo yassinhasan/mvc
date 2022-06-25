@@ -1,3 +1,4 @@
+
 .overlay_spinner
 {
     position: fixed;
@@ -21,4 +22,8 @@
 {
     width: 1rem;
     height: 1rem;
+}
+.navbar-brand 
+{
+    color: red !important;
 }

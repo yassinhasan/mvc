@@ -3,6 +3,7 @@ namespace core\controllers;
 
 use core\app\Application;
 use core\app\uploadImage;
+use core\app\user;
 use core\models\profileModel;
 
 class profileController extends abstractController 
@@ -36,22 +37,29 @@ class profileController extends abstractController
             if($this->model->updateProfileInfo($id , $data))
             {
                 $this->jData['succ'] =  "done";
-                $this->session->setFlashMsg("success" , " you have updated ypur profile succuflly");
-                $this->json();
+             //  $this->session->setFlashMsg("success_profile" , " you have updated ypur profile succuflly");
+                
             }
         }else
         {
             $this->jData['errors'] =  $this->validate->getErrors();
-            $this->json();
+          ;
         }
-
+        $this->json();
 
     }
     public function updateProfileImage()
     {
         $id = (int)$this->session->userId;
         $upload = new uploadImage("image");
-        if(!$upload->move(PROFILE_PATH))
+        $user = user::findUser();
+        $userName = $user->firstName.$user->lastName;
+        $dir = PROFILE_PATH.$userName.DS;
+        if(!is_dir( $dir))
+        {
+            mkdir( $dir);
+        }
+        if(!$upload->move( $dir))
         {
             $errors =  $upload->showErrors();
         
@@ -67,7 +75,7 @@ class profileController extends abstractController
             if($this->model->updateProfileImage($id , $imagName))
             {
                 $this->jData['succ'] =  "done";
-                $this->session->setFlashMsg("success_img" , " you have updated your profile image succuflly");
+                // $this->session->setFlashMsg("success_image" , " you have updated your profile image succuflly");
                 $this->json();
             }
         }
