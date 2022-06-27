@@ -32,11 +32,13 @@ class Rrequest
     public function getPath()
     {
 
+
         $path = null;
         if(isset($_SERVER["REQUEST_URI"]))
         {
 
-           $path = $_SERVER["REQUEST_URI"];
+           
+            $path = $_SERVER["REQUEST_URI"];
             $position = strpos($path , "?");
          
             if($position != false)
@@ -101,5 +103,9 @@ class Rrequest
     public function toUpladesaFile($file)
     {
         return $this->publicUrl()."uploades/$file";
+    }
+    public function toAdminFiles($file)
+    {
+        return $this->publicUrl()."uploades/images/admin/$file";
     }
 } 

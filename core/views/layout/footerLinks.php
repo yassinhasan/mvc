@@ -8,16 +8,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.50.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
-    <script src="<?= $this->request->jsUrl("bootstrap.bundle.min")?>?10"></script>
-    <script src="<?= $this->request->jsUrl("helper")?>?10"></script>
-    <script src="<?= $this->request->jsUrl("alert")?>?10"></script>
-    <script src="<?= $this->request->jsUrl("main")?>?10"></script>
+    <script src="<?= $this->request->jsUrl("bootstrap.bundle.min")?>?01"></script>
+    <script src="<?= $this->request->jsUrl("helper")?>?01"></script>
+    <script src="<?= $this->request->jsUrl("alert")?>?01"></script>
+    <script src="<?= $this->request->jsUrl("main")?>?01"></script>
     <?php 
 
         if(!empty($links["js"])) :
             foreach ($links["js"] as $link) :
                 $file =  $this->request->jsUrl($link);
-               echo  "<script src='".$file."?10' > </script>" ;
+               echo  "<script src='".$file."?01' > </script>" ;
             endforeach;
         endif;
     ?>

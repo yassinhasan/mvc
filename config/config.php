@@ -15,6 +15,10 @@
 !defined("UPLOADES_PATH") ? define("UPLOADES_PATH" , PUBLIC_PATH."uploades".DS) : UPLOADES_PATH;
 // IMAGES_PATH
 !defined("IMAGES_PATH") ? define("IMAGES_PATH" , UPLOADES_PATH."images".DS) : IMAGES_PATH;
+// ADMIN
+!defined("ADMIN_PATH") ? define("ADMIN_PATH" , IMAGES_PATH."admin".DS) : ADMIN_PATH;
+// DASHBOARD
+!defined("DASHBOARD_PATH") ? define("DASHBOARD_PATH" , ADMIN_PATH."dashboard".DS) : DASHBOARD_PATH;
 // PROFILE_PATH
 !defined("PROFILE_PATH") ? define("PROFILE_PATH" , IMAGES_PATH."profile".DS) : PROFILE_PATH;
 // CSS_PATH

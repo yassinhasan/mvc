@@ -63,7 +63,7 @@ class loginController extends abstractController
                         {
                           $this->jData['success'] = "you have login succuflly";  
                         }
-                        $this->session->setFlashMsg("success" , " you have login succuflly");
+                         $this->session->setFlashMsg("success_login" , " you have login succuflly");
                         
                     }else
                     {

@@ -14,10 +14,10 @@ reset_passwrod_btn.addEventListener("click",(e)=>
    })
    .then(resp=>resp.json())
    .then(data=>{
-    removeLoadSpinner();
+   
     if(data.errors)
     {
-   
+         removeLoadSpinner();
         makeInvalidInput("email"  ,data.errors )
     }else if(data.success)
     {

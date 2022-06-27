@@ -36,8 +36,9 @@ class profileController extends abstractController
         {
             if($this->model->updateProfileInfo($id , $data))
             {
+                $this->session->setFlashMsg("success_profile" , " you have updated ypur profile succuflly");
                 $this->jData['succ'] =  "done";
-             //  $this->session->setFlashMsg("success_profile" , " you have updated ypur profile succuflly");
+               
                 
             }
         }else

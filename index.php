@@ -7,10 +7,12 @@ use core\controllers\registerController;
 use core\controllers\loginController;
 use core\controllers\logoutController;
 use core\controllers\contactController;
+use core\controllers\admin\dashBoardController;
 use core\controllers\forgetPasswordController;
 use core\controllers\notfoundController;
 use core\controllers\profileController;
 use core\controllers\resetPasswordController;
+
 
 require_once "config/config.php";
 require_once "vendor/autoload.php";
@@ -51,5 +53,8 @@ $app->router->get("/forgetPassword",[ forgetPasswordController::class ,  "forget
 $app->router->post("/forgetPassword",[ forgetPasswordController::class ,  "forgetPassword"]);
 $app->router->get("/resetPassword",[ resetPasswordController::class ,  "resetPassword"]);
 $app->router->post("/resetPassword",[ resetPasswordController::class ,  "resetPassword"]);
+
+// admin 
+$app->router->get("/dashboard",[ dashBoardController::class ,  "dashboard"]);
 
 $app->run();

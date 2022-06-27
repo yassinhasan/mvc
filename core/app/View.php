@@ -59,11 +59,12 @@ class View
         echo "</form>";
     }
 
-    public function getFlashMsg($type , $message)
+    public function getFlashMsg($key , $type )
     {
-        if(Application::$app->session->hasFlashMsg("success") ) 
+        if(Application::$app->session->hasFlashMsg($key) ) 
         {
-           $msg = Application::$app->session->pull($message);
+           
+           $msg = Application::$app->session->pull($key);
             echo  "<div class='alert alert-$type alert-dismissible fade show' role='alert'>
             <strong>$type</strong> $msg
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>

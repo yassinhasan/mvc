@@ -40,9 +40,10 @@ save_profile.addEventListener("click",(e)=>
     })
     .then(resp=>resp.json())
     .then(data=>{
-        removeLoadSpinner();
+       
         if(data.errors)
         {
+            removeLoadSpinner();
             for(let err in data.errors)
             {
             
@@ -50,8 +51,11 @@ save_profile.addEventListener("click",(e)=>
             }
         }else
         {
-            showAlert("success" ,"Success !" , " you have updated your profile");
-            window.location.reload();
+            //showAlert('success' , 'Success' , data.success)
+            // setTimeout(function()
+            // {
+                window.location.reload();
+            // },2000)
         }
     })
 })

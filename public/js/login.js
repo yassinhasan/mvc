@@ -14,9 +14,10 @@ login_btn.addEventListener("click",(e)=>
    })
    .then(resp=>resp.json())
    .then(data=>{
-    removeLoadSpinner();
+    
     if(data.errors)
     {
+        removeLoadSpinner();
         for(let err in data.errors)
         {
          makeInvalidInput(err  ,null,data.errors[err] )
@@ -34,9 +35,11 @@ login_btn.addEventListener("click",(e)=>
       
     }else if(data.sql_error)
     {
+        removeLoadSpinner();
         showAlert('error' , 'Error' , data.sql_error)
     }else if(data.message_error)
     {
+        removeLoadSpinner();
         showAlert('error' , 'Error' , data.message_error)
     }
    })

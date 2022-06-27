@@ -1,7 +1,7 @@
 <?php
 
 use core\app\user;
-
+$this->view->getFlashMsg("success_profile" , "success" );
 ?>
 <div class="card" style="width: 18rem;margin-top: 50px">
     <!-- card head contain profile image -->

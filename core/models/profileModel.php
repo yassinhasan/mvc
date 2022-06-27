@@ -18,7 +18,7 @@ class profileModel extends abstractModel
                             [Validate::FIELD__UNIQUE_IN_OHER =>["app_users", "email" , "id" , $id] ]
                             ] , 
                  'mobile'=> [ Validate::FIELD__INT ,[Validate::FIELD__EQUAL => 10 ]],
-                'bio'=> [Validate::FIELD__STRING , [Validate::FIELD__MAX => 150]]
+                'bio'=> [[Validate::FIELD__MAX => 150]]
                  ]
         ;
 

@@ -17,9 +17,10 @@ reset_passwrod_btn.addEventListener("click",(e)=>
    })
    .then(resp=>resp.json())
    .then(data=>{
-    removeLoadSpinner();
+   
     if(data.errors)
     {
+        removeLoadSpinner();
         for(let err in data.errors)
         {
          makeInvalidInput(err  ,data.errors[err] )
