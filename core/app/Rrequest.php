@@ -108,4 +108,8 @@ class Rrequest
     {
         return $this->publicUrl()."uploades/images/admin/$file";
     }
+    public function toHome($file)
+    {
+        return $this->publicUrl()."uploades/images/home/$file";
+    }
 } 

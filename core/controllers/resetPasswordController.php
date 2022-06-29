@@ -56,6 +56,8 @@ class resetPasswordController extends abstractController
                    
                    if( $this->model->updatePassword($user ,$password))
                    {
+
+                    $this->session->setFlashMsg("success_resetpassword" , " Your Password Has Updated");
                     $this->jData["success"]  = " Your Password Has Updated You Will Redirected To Login Page Now";
                    }else
                    {

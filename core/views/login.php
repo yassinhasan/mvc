@@ -2,6 +2,7 @@
 
 use core\app\Application;
    $this->view->getFlashMsg("success" , "success");
+   $this->view->getFlashMsg("success_resetpassword" , "success");
     $this->view->startPostForm($model , "/login");
     $this->view->renderInput( ["email" => "Type Your Email" ]
                                 , "email" );

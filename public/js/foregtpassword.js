@@ -17,10 +17,11 @@ reset_passwrod_btn.addEventListener("click",(e)=>
    
     if(data.errors)
     {
-         removeLoadSpinner();
+        removeLoadSpinner();
         makeInvalidInput("email"  ,data.errors )
     }else if(data.success)
     {
+        removeLoadSpinner();
         makevalidInput("email"  ,data.success )
     }
    })
